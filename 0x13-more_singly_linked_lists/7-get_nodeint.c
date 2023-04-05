@@ -1,3 +1,4 @@
+#include "lists.h"
 /**
  * get_nodeint_at_index - returns the nth node of a linked list.
  * @head: a pointer to the head of the linked list.
