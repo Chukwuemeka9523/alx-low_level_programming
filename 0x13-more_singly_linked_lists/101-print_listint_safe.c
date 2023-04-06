@@ -8,29 +8,32 @@
  * Return: The number of nodes in the linked list.
  *         If the function fails, exit with status code 98.
  */
+#include "lists.h"
+
+/**
+ * print_listint_safe - prints list
+ * @head: points to start of list
+ * Return: number of nodes in size_t or exit 98 on failure
+ */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t count = 0;
+	size_t list_size = 0;
 
-	/** Traverse the linked list, printing each node's address and value */
 	while (head)
 	{
 		printf("[%p] %d\n", (void *)head, head->n);
-		count++;
+		list_size++;
 
-		/** Check if the next node is already printed, indicating a loop */
 		if (head > head->next)
 		{
 			head = head->next;
 		}
-		else /** Detected a loop, print the node and exit the loop */
+		else
 		{
 			head = head->next;
 			printf("-> [%p] %d\n", (void *)head, head->n);
 			break;
 		}
 	}
-
-	return (count);
+	return (list_size);
 }
-
